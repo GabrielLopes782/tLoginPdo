@@ -7,41 +7,40 @@
  */
 
 /**
- * Description of cPessoaFisica
+ * Description of cPessoaJ
  *
  * @author Menin
  */
-class cPessoaFisica {
-
+class cPessoaJ {
     //put your code here
-    public function inserirPessoaF() {
+     public function inserirPessoaJ() {
         if (isset($_POST['salvar'])) {
             $nome = $_POST['nome'];
             $email = $_POST['email'];
             $telefone = $_POST['telefone'];
             $endereco = $_POST['endereco'];
-            $cpf = $_POST['cpf'];
-            $sexo = $_POST['sexo'];
+            $cnpj = $_POST['cnpj'];
+            $nomeFantasia = $_POST['nomeFantasia'];
 
             $pdo = require '../pdo/connection.php';
-            $sql = "insert into pessoa (nome, email, telefone, endereco, cpf, sexo) values (?,?,?,?,?,?)";
+            $sql = "insert into pessoa (nome, email, telefone, endereco, cnpj, nomeFantasia) values (?,?,?,?,?,?)";
             $Statement = $pdo->prepare($sql);
             $Statement->bindParam(1, $nome, PDO::PARAM_STR);
             $Statement->bindParam(2, $email, PDO::PARAM_STR);
             $Statement->bindParam(3, $telefone, PDO::PARAM_STR);
             $Statement->bindParam(4, $endereco, PDO::PARAM_STR);
-            $Statement->bindParam(5, $cpf, PDO::PARAM_STR);
-            $Statement->bindParam(6, $sexo, PDO::PARAM_STR);
+            $Statement->bindParam(5, $cnpj, PDO::PARAM_STR);
+            $Statement->bindParam(6, $nomeFantasia, PDO::PARAM_STR);
             $Statement->execute();
-            header("location: cadPessoaF.php");
+            header("location: cadPessoaJ.php");
             unset($Statement);
             unset($pdo);
         }
     }
 
-    public function getPessoaF() {
+    public function getPessoaJ() {
         $pdo = require_once '../pdo/connection.php';
-        $sql = "select idPessoa, nome, telefone, email, endereco, cpf, sexo from pessoa where cnpj is null";
+        $sql = "select idPessoa, nome, telefone, email, endereco, cnpj, nomeFantasia from pessoa where cpf is null";
         $sth = $pdo->prepare($sql);
         $sth->execute();
         $result = $sth->fetchAll();
@@ -50,9 +49,9 @@ class cPessoaFisica {
         unset($pdo);
     }
 
-    public function getPessoaFById($idPessoa) {
+    public function getPessoaJById($idPessoa) {
         $pdo = require_once '../pdo/connection.php';
-        $sql = "select  idPessoa, nome, telefone, email, endereco, cpf, sexo from pessoa where idPessoa= ?";
+        $sql = "select  idPessoa, nome, telefone, email, endereco, cnpj, nomeFantasia from pessoa where idPessoa= ?";
         $sth = $pdo->prepare($sql);
         $sth->execute([$idPessoa]);
         $result = $sth->fetchAll();
@@ -60,5 +59,6 @@ class cPessoaFisica {
         unset($pdo);
         return $result;
     }
-    
+
+
 }

@@ -24,6 +24,6 @@ if (isset($_SESSION['logadoT']) && $_SESSION['logadoT'] == true) {
         <p></p>
         <a href="view/cadUsuario.php">Cadastro de Usuário</a>
         <a href="view/cadPessoaF.php">Cadastro de Pessoa Física</a>
-        
+        <a href="view/cadPessoaJ.php">Cadastro De Pessoa Jurídica</a>
     </body>
 </html>

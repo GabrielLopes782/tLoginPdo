@@ -31,13 +31,15 @@ $listPessoaF=$cadPessoaF->getPessoaF();
                         <td> <?php echo $pessoaF ['cpf']; ?> </td>
                         <td> <?php echo $pessoaF ['sexo']; ?> </td>
                         <td> 
-                            <form action="<?php $cadPessoaF->deletarPessoaFBD() ?>" method="POST">
-                                <input type="hidden" name="idPessoa" value="<?php echo $pessoaF["idPessoa"]; ?>"/>
-                                <input type="submit" name="deletePessoaF" value="delete"/>
+                            <form action="../controller/deletePessoaF.php" method="POST"/>
+                                <input type="hidden" name="idPessoa" value="<?php echo $pessoaF["idPessoa"]; ?>">
+                                <input type="submit" name="deletePessoaF" value="Deletar"/>
                             </form>
-                            <form action="editarUsuario.php" method="POST">
+                            <form action="editarPessoaF.php" method="POST">
                                 <input type="hidden" name="idPessoa" value="<?php echo $pessoaF["idPessoa"]; ?>"/>
-                                <input type="submit" name="editar" value="editar"/>
+                                <input type="submit" name="UpdatePessoaF" value="Editar"/>
+                            </form>
+                        </td>
                     </tr>
                     <?php
                 endforeach;

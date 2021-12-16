@@ -10,8 +10,8 @@ if (isset($_SESSION['logadoT']) && $_SESSION['logadoT'] == true) {
 }
 ?>
 <?php
-require_once '../controller/cPessoaFisica.php';
-$cadPessoaF = new cPessoaFisica();
+require_once '../controller/cPessoaJ.php';
+$cadPessoaJ = new cPessoaJ();
 ?>
 <html>
     <head>
@@ -19,8 +19,8 @@ $cadPessoaF = new cPessoaFisica();
         <title></title>
     </head>
     <body>
-        <h1>Cadastro de Pessoa Física</h1>
-        <form action="<?php $cadPessoaF->inserirPessoaF() ?>"method="POST">
+        <h1>Cadastro de Pessoa Jurídica</h1>
+        <form action="<?php $cadPessoaJ->inserirPessoaJ() ?>"method="POST">
             <form method="POST">
                 <input type='text' name='nome' placeholder="Nome Aqui..."/>
                 <br><br>
@@ -30,14 +30,13 @@ $cadPessoaF = new cPessoaFisica();
                 <br><br>
                 <input type='text' name='endereco' placeholder="Endereço Aqui..."/>
                 <br><br>
-                <input type='text' name='cpf' placeholder="CPF Aqui..."/>
+                <input type='text' name='cnpj' placeholder="CNPJ Aqui..."/>
                 <br><br>
-                <input type="radio" value="F" name="sexo"/>Feminino
-                <input type="radio" value="M" name="sexo"/>Masculino
+                <input type='text' name='nomeFantasia' placeholder="Nome Fantasia Aqui..."/>
                 <br><br>
                 <input type='submit' name='salvar' value='salvar'/>
                 <input type='reset' name='limpar' value="limpar"/> 
                 <input type="button" name="voltar" value="voltar" onclick="location.href = '../index.php'" />
-                <input type="button" name="listar" value='listar' onclick="location.href = 'listaPessoaF.php'"/>
+                <input type="button" name="listar" value='listar' onclick="location.href = 'listaPessoaJ.php'"/>
                 </body>
                 </html>

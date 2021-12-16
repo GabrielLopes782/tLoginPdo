@@ -35,13 +35,14 @@ $listUsers = $cadUser->getUsuarios();
                         <td> <?php echo $user ['nome']; ?> </td>
                         <td> <?php echo $user ['email']; ?> </td>
                         <td> 
-                            <form action="<?php $cadUser->deletarUserBD() ?>" method="POST">
+                            <form action="../controller/deleteUser.php" method="POST">
                                 <input type="hidden" name="idUser" value="<?php echo $user["idUser"]; ?>"/>
-                                <input type="submit" name="delete" value="delete"/>
+                                <input type="submit" name="deleteUser" value="delete"/>
                             </form>
                             <form action="editarUsuario.php" method="POST">
                                 <input type="hidden" name="idUser" value="<?php echo $user["idUser"]; ?>"/>
-                                <input type="submit" name="editar" value="editar"/>
+                                <input type="submit" name="Update" value="editar"/>
+                            </form>
                     </tr>
                     <?php
                 endforeach;
