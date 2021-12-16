@@ -1,9 +1,13 @@
 <!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
+<?php
+session_start();
+if (isset($_SESSION['logadoT']) && $_SESSION['logadoT'] == true) {
+    echo $_SESSION['usuarioT'] . " | " . $_SESSION['emailT'];
+    echo " | <a href='../controller/logout.php'>Sair</a>";
+} else {
+    header("location: login.php");
+}
+?>
 <?php
 require_once '../controller/cPessoaFisica.php';
 $cadPessoaF= new cPessoaFisica();
